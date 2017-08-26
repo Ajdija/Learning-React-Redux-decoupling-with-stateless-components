@@ -1,0 +1,223 @@
+/**
+ * This css was inspired by https://codepen.io/tbremer/pen/wKpaWe
+ */
+
+.react-calculator {
+    position: relative;
+    margin: 0 auto;
+    width: 440px;
+
+    box-shadow: 0 15px 45px rgba(19, 19, 19, .24), 0 15px 45px rgba(19, 19, 19, .12);
+}
+
+button {
+    outline: none;
+    border: 0;
+    padding: 1rem;
+    background-color: #292f36;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: #FFFDF7;
+
+    -webkit-transition: all 300ms cubic-bezier(1, 1, 1, 1);
+    transition: all 300ms cubic-bezier(1, 1, 1, 1);
+}
+
+button:hover {
+    color: #FFE66D;
+}
+
+button .block {
+    width: 100%;
+}
+
+button .transparent {
+    background-color: transparent;
+}
+
+button .no-padding {
+    padding: 0;
+}
+
+button .control {
+    font-size: 1rem;
+}
+
+-webkit-scrollbar, .display::-webkit-scrollbar, .history::-webkit-scrollbar {
+    width: .5rem;
+}
+
+-webkit-scrollbar:horizontal,
+.display::-webkit-scrollbar:horizontal,
+.history::-webkit-scrollbar:horizontal {
+    height: .5rem;
+}
+
+-webkit-scrollbar-track,
+-webkit-scrollbar:horizontal,
+.display::-webkit-scrollbar-track,
+.display::-webkit-scrollbar:horizontal,
+.history::-webkit-scrollbar-track,
+.history::-webkit-scrollbar:horizontal {
+    background-color: #131313;
+}
+
+-webkit-scrollbar-thumb,
+-webkit-scrollbar:horizontal,
+.display::-webkit-scrollbar-thumb,
+.display::-webkit-scrollbar:horizontal,
+.history::-webkit-scrollbar-thumb,
+.history::-webkit-scrollbar:horizontal {
+    background-color: #FFE66D;
+}
+
+hover::-webkit-scrollbar-thumb,
+hover::-webkit-scrollbar:horizontal,
+.display:hover::-webkit-scrollbar-thumb,
+.display:hover::-webkit-scrollbar:horizontal,
+.history:hover::-webkit-scrollbar-thumb,
+.history:hover::-webkit-scrollbar:horizontal {
+    background-color: #FFE66D;
+}
+
+.display {
+    /*Positioning*/
+    position: relative;
+    width: 440px;
+    height: 120px;
+    z-index: 10;
+
+    /*Formatting*/
+    outline: none;
+    box-shadow: 0 4px 2px -2px rgba(19, 19, 19, .64);
+    padding: .5rem;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    font-size: 3rem;
+    line-height: 2;
+    text-align: right;
+    direction: rtl;
+    white-space: nowrap;
+
+    /*Colors*/
+    background-color: rgba(19, 19, 19, .64);
+    color: #FFE66D;
+}
+
+.history {
+    /*Positioning*/
+    position: absolute;
+    top: 120px;
+    left: 0;
+    z-index: 10;
+
+    /*Formatting*/
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+
+    /*Colors*/
+    background-color: rgba(19, 19, 19, .64);
+    color: #00a3f5;
+
+    /*Animation*/
+    -webkit-transition: height 150ms cubic-bezier(1, 1, 1, 1),
+    overflow 1ms cubic-bezier(1, 1, 1, 1) 200ms,
+    padding 1ms cubic-bezier(1, 1, 1, 1) 200ms;
+
+    transition: height 150ms cubic-bezier(1, 1, 1, 1),
+    overflow 1ms cubic-bezier(1, 1, 1, 1) 200ms,
+    padding 1ms cubic-bezier(1, 1, 1, 1) 200ms;
+}
+
+.history .toggle-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 2px 5px;
+}
+
+.history .toggle-close .title {
+    display: inline-block;
+
+    /*Rotation - plus sign*/
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+.history.visible {
+    /*Formatting*/
+    height: calc(100% - 120px);
+    padding: 10px;
+
+    /*Overflow*/
+    overflow-y: auto;
+
+    /*Animation*/
+    -webkit-transition: height 200ms cubic-bezier(1, 1, 1, 1), padding 1ms cubic-bezier(1, 1, 1, 1);
+    transition: height 200ms cubic-bezier(1, 1, 1, 1), padding 1ms cubic-bezier(1, 1, 1, 1);
+}
+
+.buttons--controls,
+.buttons--operators {
+    background-color: #292f36;
+}
+
+.buttons--controls button, .buttons--operators button {
+    /*Formatting*/
+    display: inline-block;
+    width: 110px;
+    height: 110px;
+    vertical-align: top;
+
+    /*Color*/
+    color: #FFE66D;
+
+    /*Uppercase transform*/
+    text-transform: uppercase;
+    -webkit-font-feature-settings: "c2sc", "c2sc", "c2sc";
+    -moz-font-feature-settings: "c2sc", "c2sc", "c2sc";
+    font-feature-settings: "c2sc", "c2sc", "c2sc";
+    font-variant: small-caps;
+}
+
+.buttons--controls button:hover, .buttons--operators button:hover {
+    color: #c41c4f;
+}
+
+.buttons--digits {
+    /*Formatting*/
+    width: 330px;
+    float: left;
+
+    /*Color*/
+    background-color: #292f36;
+}
+
+.buttons--digits button {
+    /*Formatting*/
+    display: block;
+    position: relative;
+    width: 110px;
+    height: 110px;
+    float: left;
+
+    /*Color*/
+    background-color: #292f36;
+
+    /*Transforms*/
+    -webkit-transition: box-shadow 300ms cubic-bezier(1, 1, 1, 1);
+    transition: box-shadow 300ms cubic-bezier(1, 1, 1, 1);
+}
+
+.buttons--digits button:last-child {
+    width: 100%;
+}
+
+.buttons--controls {
+    clear: left;
+    float: left;
+    width: 330px;
+    height: 110px;
+}
