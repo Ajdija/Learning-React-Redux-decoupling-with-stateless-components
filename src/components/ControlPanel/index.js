@@ -1,12 +1,10 @@
 import React from 'react';
-import ee from '../../eventEmitter';
 import store from '../../store';
 import Button from '../Button';
 import { updateExpression } from '../../actions/expression';
+import { toggleHistory } from '../../actions/history';
 
-export const showHistory = () => {
-    ee.emitEvent('toggle-history');
-}
+export const showHistory = () => toggleHistory();
 
 export const clearDisplay = () => updateExpression(0);
 

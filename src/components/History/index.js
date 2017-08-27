@@ -1,21 +1,16 @@
 import React, { Component } from 'react';
 import store from '../../store';
 import Button from '../Button';
-import ee from '../../eventEmitter';
+import { toggleHistory } from '../../actions/history';
+import { updateExpression } from '../../actions/expression';
 
 class History extends Component {
     constructor(props) {
         super(props);
 
         this.state = { show: false, history: [] };
-        this.toggleHistory = this.toggleHistory.bind(this);
         this.addHistoryItem = this.addHistoryItem.bind(this);
         this.getHistoryItems = this.getHistoryItems.bind(this);
-    }
-
-    componentWillMount() {
-        ee.addListener('historyUpdate', this.addHistoryItem);
-        ee.addListener('toggle-history', this.toggleHistory);
     }
 
     addHistoryItem(historyItem) {
@@ -35,19 +30,15 @@ class History extends Component {
         return this.state.history.filter(h => !!h);
     }
 
-    toggleHistory() {
-        this.setState({ ...this.state, show: !this.state.show });
-    }
-
     historyItemClickHandler(history) {
-        store.newExpression = history;
-        ee.emitEvent('toggle-history');
+        updateExpression(history);
+        toggleHistory();
     }
 
     render() {
         return (
-            <section className={`history ${this.state.show ? 'visible' : ''}`}>
-                <Button text="+" clickHandler={this.toggleHistory} buttonClass="toggle-close"/>
+            <section className={`history ${store.getState().showHistory ? 'visible' : ''}`}>
+                <Button text="+" clickHandler={toggleHistory} buttonClass="toggle-close"/>
                 {this.getHistoryItems().map((mem, i) => (
                     <Button key={i} buttonClass="block transparent"
                             text={mem} clickHandler={this.historyItemClickHandler}/>
