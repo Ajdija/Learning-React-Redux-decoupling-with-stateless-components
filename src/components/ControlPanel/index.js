@@ -2,20 +2,19 @@ import React from 'react';
 import ee from '../../eventEmitter';
 import store from '../../store';
 import Button from '../Button';
+import { updateExpression } from '../../actions/expression';
 
 export const showHistory = () => {
     ee.emitEvent('toggle-history');
 }
 
-export const clearDisplay = () => {
-    store.newExpression = 0;
-}
+export const clearDisplay = () => updateExpression(0);
 
 export const removeOneChar = () => {
-    const curExpression = String(store.curExpression);
+    const curExpression = String(store.getState().curExpression);
     const newExpWithRemovedChar = curExpression.toString().trim().substring(0, (curExpression.length - 1));
 
-    return store.newExpression = newExpWithRemovedChar === '' ? 0 : newExpWithRemovedChar;
+    return updateExpression(newExpWithRemovedChar === '' ? 0 : newExpWithRemovedChar);
 }
 
 export const ControlPanel = () => (

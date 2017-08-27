@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Calculator from './components/Calculator';
 import registerServiceWorker from './registerServiceWorker';
+import store from './store';
 
-ReactDOM.render(<Calculator />, document.getElementById('root'));
+const renderCalculator = () => {
+  ReactDOM.render(<Calculator />, document.getElementById('root'));
+};
+
+store.subscribe(renderCalculator);
+renderCalculator();
 registerServiceWorker();

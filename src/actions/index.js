@@ -1,3 +1,6 @@
 import { combineReducers } from 'redux';
+import { expressionReducer } from './expression';
 
-export default combineReducers({});
+export default combineReducers({
+  curExpression: expressionReducer
+});
