@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
 import { expressionReducer } from './expression';
-import { showHistoryReducer } from './history';
+import { showHistoryReducer, historyReducer } from './history';
 
 export default combineReducers({
   curExpression: expressionReducer,
-  showHistory: showHistoryReducer
+  showHistory: showHistoryReducer,
+  history: historyReducer
 });

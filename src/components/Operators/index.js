@@ -1,10 +1,9 @@
 import React from 'react';
 import store from '../../store';
 import Button from '../Button';
+import { updateExpression } from '../../actions/expression';
 
-export const opHandler = (type) => {
-    store.newExpression = `${store.curExpression} ${type} `;
-}
+export const opHandler = (type) => updateExpression(`${store.getState().curExpression} ${type} `);
 
 export const calculateExpression = () => {
     /* eslint-disable */
@@ -14,7 +13,7 @@ export const calculateExpression = () => {
     const calcFunc = eval;
     /* eslint-enable */
     try {
-        store.newExpression = calcFunc(store.curExpression);
+        updateExpression(calcFunc(store.getState().curExpression));
     } catch (e) {
         console.error("Error: Incorrect Expression of digits & operators :(")
     }
