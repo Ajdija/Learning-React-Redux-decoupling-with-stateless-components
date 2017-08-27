@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Calculator.css';
 import Display from '../Display';
 import ControlPanel from '../ControlPanel';
-import Digits from '../Digits';
+import Digits from '../../containers/Digits';
 import Operators from '../Operators';
 import History from '../History';
 import store from '../../store';
@@ -13,7 +13,7 @@ class Calculator extends Component {
           <main className="react-calculator">
               <Display text={store.getState().curExpression} />
               <ControlPanel />
-              <Digits />
+              <Digits store={store} />
               <Operators />
               <History showHistory={store.getState().showHistory}
                        history={store.getState().history} />
