@@ -3,7 +3,7 @@ import './Calculator.css';
 import Display from '../Display';
 import ControlPanel from '../../containers/ControlPanel';
 import Digits from '../../containers/Digits';
-import Operators from '../Operators';
+import Operators from '../../containers/Operators';
 import History from '../../containers/History';
 import store from '../../store';
 
@@ -14,7 +14,7 @@ class Calculator extends Component {
               <Display text={store.getState().curExpression} />
               <ControlPanel store={store} />
               <Digits store={store} />
-              <Operators />
+              <Operators store={store} />
               <History store={store}
                        showHistory={store.getState().showHistory}
                        history={store.getState().history} />
