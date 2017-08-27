@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './Calculator.css';
 import Display from '../Display';
-import ControlPanel from '../ControlPanel';
+import ControlPanel from '../../containers/ControlPanel';
 import Digits from '../../containers/Digits';
 import Operators from '../Operators';
-import History from '../History';
+import History from '../../containers/History';
 import store from '../../store';
 
 class Calculator extends Component {
@@ -12,10 +12,11 @@ class Calculator extends Component {
       return (
           <main className="react-calculator">
               <Display text={store.getState().curExpression} />
-              <ControlPanel />
+              <ControlPanel store={store} />
               <Digits store={store} />
               <Operators />
-              <History showHistory={store.getState().showHistory}
+              <History store={store}
+                       showHistory={store.getState().showHistory}
                        history={store.getState().history} />
           </main>
       )

@@ -1,11 +1,10 @@
-import store from '../../store';
 import { EXPRESSION_UPDATE_ACTION, NEW_EXPRESSION_KEY } from '../expression';
 
 export const TOGGLE_HISTORY_ACTION = 'TOGGLE_HISTORY_ACTION';
 export const UPDATE_HISTORY_ACTION = 'UPDATE_HISTORY_ACTION';
 export const HISTORY_ITEM_KEY = 'HISTORY_ITEM_KEY';
 
-export const toggleHistory = () => store.dispatch({ type: TOGGLE_HISTORY_ACTION });
+export const toggleHistory = () => ({ type: TOGGLE_HISTORY_ACTION });
 
 export const updateHistory = newExp => ({
   type: UPDATE_HISTORY_ACTION,

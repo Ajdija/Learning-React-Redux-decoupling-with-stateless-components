@@ -2,9 +2,6 @@ import React from 'react';
 import store from '../../store';
 import Button from '../Button';
 import { updateExpression } from '../../actions/expression';
-import { toggleHistory } from '../../actions/history';
-
-export const showHistory = () => toggleHistory();
 
 export const clearDisplay = () => updateExpression(0);
 
@@ -15,7 +12,7 @@ export const removeOneChar = () => {
     return updateExpression(newExpWithRemovedChar === '' ? 0 : newExpWithRemovedChar);
 }
 
-export const ControlPanel = () => (
+export const ControlPanel = ({ showHistory }) => (
   <section className="buttons--controls">
       <Button buttonClass="control" text="&larr;" clickHandler={removeOneChar}/>
       <Button buttonClass="control" text="c" clickHandler={clearDisplay}/>

@@ -1,10 +1,9 @@
-import store from '../../store';
 import { DIGIT_CLICK_ACTION, CLICKED_DIGIT_KEY } from '../digit';
 
 export const EXPRESSION_UPDATE_ACTION = 'EXPRESSION_UPDATE_ACTION';
 export const NEW_EXPRESSION_KEY = 'NEW_EXPRESSION_KEY';
 
-export const updateExpression = newExp => store.dispatch({
+export const updateExpression = newExp => ({
   type: EXPRESSION_UPDATE_ACTION,
   payload: { [NEW_EXPRESSION_KEY]: newExp }
 });
