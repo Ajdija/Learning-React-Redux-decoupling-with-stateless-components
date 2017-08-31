@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expression reducer should handle DIGIT_CLICK_ACTION action 1`] = `0`;
+
+exports[`expression reducer should handle DIGIT_CLICK_ACTION action 2`] = `5`;
+
+exports[`expression reducer should handle EXPRESSION_UPDATE_ACTION action 1`] = `10`;
+
+exports[`expression reducer should handle EXPRESSION_UPDATE_ACTION action 2`] = `15`;
+
+exports[`expression reducer should return initial state 1`] = `0`;

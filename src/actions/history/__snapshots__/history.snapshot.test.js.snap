@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`history reducer should handle EXPRESSION_UPDATE_ACTION action 1`] = `
+Array [
+  "10",
+]
+`;
+
+exports[`history reducer should handle EXPRESSION_UPDATE_ACTION action 2`] = `
+Array [
+  "10",
+  "15",
+]
+`;
+
+exports[`history reducer should handle EXPRESSION_UPDATE_ACTION action 3`] = `
+Array [
+  "10",
+  "15",
+]
+`;
+
+exports[`history reducer should handle UPDATE_HISTORY_ACTION action 1`] = `
+Array [
+  "1",
+]
+`;
+
+exports[`history reducer should handle UPDATE_HISTORY_ACTION action 2`] = `
+Array [
+  "1",
+  "5+5",
+]
+`;
+
+exports[`history reducer should handle UPDATE_HISTORY_ACTION action 3`] = `
+Array [
+  "1",
+  "5+5",
+]
+`;
+
+exports[`history reducer should not add the same expression again when handling EXPRESSION_UPDATE_ACTION 1`] = `
+Array [
+  "10",
+]
+`;
+
+exports[`history reducer should not add the same expression again when handling UPDATE_HISTORY_ACTION 1`] = `
+Array [
+  "5+5",
+]
+`;
+
+exports[`history reducer should return initial state 1`] = `Array []`;

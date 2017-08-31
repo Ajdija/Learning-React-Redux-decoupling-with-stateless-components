@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`button component snapshot test takes snapshot of a button component with class and text 1`] = `
+<button
+  className="testClass"
+  onClick={[Function]}
+>
+  <span
+    className="title"
+  >
+    12345
+  </span>
+</button>
+`;
