@@ -1,3 +1,7 @@
+# This is finished branch
+It contains refactored code with 10% code coverage.
+Congratulations, if you just finished the course!
+
 ## Learning React and Redux: decoupling with stateless components
 
 Welcome to official repository for Udemy course  
